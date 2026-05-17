@@ -1,0 +1,89 @@
+.masthead {
+  align-items: center;
+  background: #f7faf9;
+  border-bottom: 1px solid #d8e2de;
+  color: #17211f;
+  display: flex;
+  flex-direction: column;
+  min-height: 68vh;
+  padding: 5.5rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.kicker {
+  color: #2d6a5f;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.masthead h1 {
+  font-size: 4rem;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.lead {
+  color: #3e4e4a;
+  font-size: 1.22rem;
+  line-height: 1.65;
+  margin: 1.4rem auto 0;
+  max-width: 760px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.highlights {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 4rem 1.5rem;
+}
+
+.highlight {
+  border-top: 3px solid #2d6a5f;
+  padding-top: 1rem;
+}
+
+.highlight h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  margin: 0 0 0.65rem;
+}
+
+.highlight p {
+  color: #53615e;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .masthead {
+    min-height: auto;
+    padding: 4rem 1rem 3rem;
+  }
+
+  .masthead h1 {
+    font-size: 3rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+    padding: 3rem 1rem;
+  }
+}
