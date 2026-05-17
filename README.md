@@ -1,77 +1,173 @@
+<p align="center">
+  <img src=".github/social_preview.jpg" alt="Class social preview" width="75%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/Lost-Things-Studio/Class/releases">Releases</a> |
+  <a href="https://github.com/Lost-Things-Studio/Class/archive/refs/heads/main.zip">Download</a> |
+  <a href="https://lost-things-studio.github.io/Class/">Documentation</a> |
+  <a href="https://lost-things-studio.github.io/Class/api/class-factory">API</a> |
+  <a href="https://github.com/Lost-Things-Studio/Class/issues">Issues</a> |
+  <a href="https://github.com/Lost-Things-Studio/Class/blob/main/CONTRIBUTING.md">Contributing</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Lost-Things-Studio/Class/actions/workflows/tests.yml">
+    <img alt="tests" src="https://img.shields.io/github/actions/workflow/status/Lost-Things-Studio/Class/tests.yml?branch=main&label=tests&style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class/actions/workflows/documentation.yml">
+    <img alt="documentation" src="https://img.shields.io/github/actions/workflow/status/Lost-Things-Studio/Class/documentation.yml?branch=main&label=docs&style=flat-square" />
+  </a>
+  <a href="https://www.lua.org/">
+    <img alt="lua" src="https://img.shields.io/badge/Lua-5.1%2B-2C2D72?style=flat-square&logo=lua&logoColor=white" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Lost-Things-Studio/Class/releases">
+    <img alt="release" src="https://img.shields.io/github/v/release/Lost-Things-Studio/Class?include_prereleases&style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class/releases">
+    <img alt="downloads" src="https://img.shields.io/github/downloads/Lost-Things-Studio/Class/total?color=green&style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class">
+    <img alt="repo size" src="https://img.shields.io/github/repo-size/Lost-Things-Studio/Class?style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/github/license/Lost-Things-Studio/Class?color=green&style=flat-square" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Lost-Things-Studio/Class/issues">
+    <img alt="issues" src="https://img.shields.io/github/issues-raw/Lost-Things-Studio/Class?color=yellow&style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class/pulls">
+    <img alt="pull requests" src="https://img.shields.io/github/issues-pr-raw/Lost-Things-Studio/Class?color=yellow&style=flat-square" />
+  </a>
+  <a href="https://github.com/Lost-Things-Studio/Class/stargazers">
+    <img alt="stars" src="https://img.shields.io/github/stars/Lost-Things-Studio/Class?style=flat-square" />
+  </a>
+</p>
+
 # Class
 
-[![Tests](https://github.com/Gopmyc/Class/actions/workflows/tests.yml/badge.svg)](https://github.com/Gopmyc/Class/actions/workflows/tests.yml)
-[![Documentation](https://github.com/Gopmyc/Class/actions/workflows/documentation.yml/badge.svg)](https://github.com/Gopmyc/Class/actions/workflows/documentation.yml)
-[![License: MIT](https://img.shields.io/github/license/Gopmyc/Class.svg)](LICENSE)
+**Class** is a lightweight object-oriented helper for Lua projects that need classes, instance initialization, inheritance-style includes, private state, operator helpers, cloning, and debug output in a single `class.lua` file.
 
-Class is a small object-oriented helper for Lua. It gives you class creation,
-instance initialization, inheritance-style includes, private instance state,
-operator helpers, and debug output in a single `class.lua` file.
+Designed for projects that want OOP ergonomics without pulling a framework into the runtime.
 
-## Why Use It
+## Why Class?
 
-- Single-file Lua module.
-- No runtime dependency.
-- Compatible with Lua 5.1+.
-- Simple class and instance syntax.
-- Built-in helpers for includes, private state, accessors, cloning, and debug info.
+- 🧩 **Single file** — Drop `class.lua` into your project and require it.
+- 🪶 **No runtime dependency** — Pure Lua, no package manager required.
+- 🧬 **Composable classes** — Reuse behavior with inheritance-style includes.
+- 🔒 **Private instance state** — Store internal data through `self.__private`.
+- 🧰 **Useful helpers** — Accessors, cloning, operators, and debug tools.
+- 🧪 **Lua 5.1+ compatible** — Tested across Lua 5.1, 5.2, 5.3, and 5.4.
 
 ## Installation
 
-Copy `class.lua` into your project and require it:
+Copy `class.lua` into your project:
+
+```bash
+cp class.lua path/to/your/project/class.lua
+````
+
+Then require it:
 
 ```lua
-local Class = require("class")
+local mClass = require("class")
 ```
 
 ## Quick Start
 
 ```lua
-local Class = require("class")
+local mClass = require("class")
 
-local Player = Class({
-    __type = "Player",
+local cPlayer = mClass({
+	__type = "Player",
 
-    init = function(self, name)
-        self.name = name
-        self.__private.score = 0
-    end,
+	init = function(self, sName)
+		self.name = sName
+		self.__private.score = 0
+	end,
 
-    addScore = function(self, amount)
-        self.__private.score = self.__private.score + amount
-    end,
+	addScore = function(self, nAmount)
+		self.__private.score = self.__private.score + nAmount
+	end,
 
-    getScore = function(self)
-        return self.__private.score
-    end,
+	getScore = function(self)
+		return self.__private.score
+	end,
 })
 
-local player = Player("Ada")
-player:addScore(10)
+local oPlayer = cPlayer("Ada")
 
-print(player.name)       -- Ada
-print(player:getScore()) -- 10
+oPlayer:addScore(10)
+
+print(oPlayer.name)
+print(oPlayer:getScore())
 ```
 
-## Inheritance-Style Includes
+## Includes
+
+Includes let you compose behavior from another class-like definition.
 
 ```lua
-local Named = Class({
-    getName = function(self)
-        return self.name
-    end,
+local mClass = require("class")
+
+local cNamed = mClass({
+	getName = function(self)
+		return self.name
+	end,
 })
 
-local User = Class({
-    __includes = Named,
+local cUser = mClass({
+	__includes = cNamed,
 
-    init = function(self, name)
-        self.name = name
-    end,
+	init = function(self, sName)
+		self.name = sName
+	end,
 })
 
-print(User("Ada"):getName())
+print(cUser("Ada"):getName())
 ```
+
+## Feature Overview
+
+| Feature                 | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| Class creation          | Build callable classes from Lua tables.                 |
+| Instance initialization | Define an `init` method for constructor-like behavior.  |
+| Includes                | Share methods between class definitions.                |
+| Private state           | Use `self.__private` for per-instance internal data.    |
+| Accessors               | Generate and manage structured access to values.        |
+| Cloning                 | Duplicate class instances when needed.                  |
+| Operators               | Add helper behavior for Lua metamethod-driven patterns. |
+| Debug output            | Inspect class and instance information more easily.     |
+
+## Documentation
+
+The documentation is available here:
+
+**[https://lost-things-studio.github.io/Class/](https://lost-things-studio.github.io/Class/)**
+
+Run it locally:
+
+```bash
+cd docs
+npm install
+npm run start
+```
+
+Build the static site:
+
+```bash
+cd docs
+npm run build
+```
+
+The generated site is written to `docs/build`.
 
 ## Tests
 
@@ -89,33 +185,14 @@ luac -p class.lua tests/*.lua
 
 The GitHub Actions test workflow runs on Lua 5.1, 5.2, 5.3, and 5.4.
 
-## Documentation
-
-The Docusaurus documentation lives in `docs/`.
-
-```bash
-cd docs
-npm install
-npm run start
-```
-
-Build the static documentation:
-
-```bash
-cd docs
-npm run build
-```
-
-The generated static site is written to `docs/build`.
-
-Published documentation: [https://gopmyc.github.io/Class/](https://gopmyc.github.io/Class/)
-
 ## Contributing
 
-Contributions are welcome. Please read:
+Contributions are welcome.
 
-- [Contributing guide](CONTRIBUTING.md)
-- [Code of conduct](CODE_OF_PRODUCT.md)
+Please read:
+
+* [Contributing guide](CONTRIBUTING.md)
+* [Code of conduct](CODE_OF_CONDUCT.md)
 
 ## License
 
