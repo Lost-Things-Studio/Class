@@ -4,7 +4,8 @@
 
 <p align="center">
   <a href="https://github.com/Lost-Things-Studio/Class/releases">Releases</a> |
-  <a href="https://github.com/Lost-Things-Studio/Class/archive/refs/heads/main.zip">Download</a> |
+  <a href="https://github.com/Lost-Things-Studio/Class/releases/latest">Download</a> |
+  <a href="https://luarocks.org/search?q=lost-class">LuaRocks</a> |
   <a href="https://lost-things-studio.github.io/Class/">Documentation</a> |
   <a href="https://lost-things-studio.github.io/Class/api/class-factory">API</a> |
   <a href="https://github.com/Lost-Things-Studio/Class/issues">Issues</a> |
@@ -21,10 +22,13 @@
   <a href="https://www.lua.org/">
     <img alt="lua" src="https://img.shields.io/badge/Lua-5.1%2B-2C2D72?style=flat-square&logo=lua&logoColor=white" />
   </a>
+  <a href="https://luarocks.org/search?q=lost-class">
+    <img alt="LuaRocks" src="https://img.shields.io/badge/LuaRocks-lost--class-2c3e50?style=flat-square" />
+  </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Lost-Things-Studio/Class/releases">
+  <a href="https://github.com/Lost-Things-Studio/Class/releases/latest">
     <img alt="release" src="https://img.shields.io/github/v/release/Lost-Things-Studio/Class?include_prereleases&style=flat-square" />
   </a>
   <a href="https://github.com/Lost-Things-Studio/Class/releases">
@@ -52,26 +56,42 @@
 
 # Class
 
-**Class** is a lightweight object-oriented helper for Lua projects that need classes, instance initialization, inheritance-style includes, private state, operator helpers, cloning, and debug output in a single `class.lua` file.
+**Class** is a lightweight object-oriented helper for Lua projects that need class creation, instance initialization, inheritance-style includes, private instance state, accessor helpers, cloning, operator helpers, and debug output in a single `class.lua` file.
 
-Designed for projects that want OOP ergonomics without pulling a framework into the runtime.
+It is designed for projects that want OOP ergonomics without pulling a framework into the runtime.
 
 ## Why Class?
 
-- 🧩 **Single file** — Drop `class.lua` into your project and require it.
-- 🪶 **No runtime dependency** — Pure Lua, no package manager required.
-- 🧬 **Composable classes** — Reuse behavior with inheritance-style includes.
-- 🔒 **Private instance state** — Store internal data through `self.__private`.
-- 🧰 **Useful helpers** — Accessors, cloning, operators, and debug tools.
-- 🧪 **Lua 5.1+ compatible** — Tested across Lua 5.1, 5.2, 5.3, and 5.4.
+- **Single file** : Drop `class.lua` into your project or install it with LuaRocks.
+- **No runtime dependency** : Pure Lua, no framework required.
+- **Composable classes** : Reuse behavior with inheritance-style includes.
+- **Private instance state** : Store internal data through `self.__private`.
+- **Useful helpers** : Accessors, cloning, operators, and debug tools.
+- **Lua 5.1+ compatible** : Tested across Lua 5.1, 5.2, 5.3, and 5.4.
 
 ## Installation
+
+### LuaRocks
+
+```bash
+luarocks install lost-class
+```
+
+Then require the module:
+
+```lua
+local mClass = require("class")
+```
+
+> The LuaRocks package is named `lost-class`, but the Lua module remains `class`.
+
+### Manual Installation
 
 Copy `class.lua` into your project:
 
 ```bash
 cp class.lua path/to/your/project/class.lua
-````
+```
 
 Then require it:
 
@@ -109,6 +129,13 @@ print(oPlayer.name)
 print(oPlayer:getScore())
 ```
 
+Expected output:
+
+```txt
+Ada
+10
+```
+
 ## Includes
 
 Includes let you compose behavior from another class-like definition.
@@ -135,16 +162,16 @@ print(cUser("Ada"):getName())
 
 ## Feature Overview
 
-| Feature                 | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| Class creation          | Build callable classes from Lua tables.                 |
-| Instance initialization | Define an `init` method for constructor-like behavior.  |
-| Includes                | Share methods between class definitions.                |
-| Private state           | Use `self.__private` for per-instance internal data.    |
-| Accessors               | Generate and manage structured access to values.        |
-| Cloning                 | Duplicate class instances when needed.                  |
-| Operators               | Add helper behavior for Lua metamethod-driven patterns. |
-| Debug output            | Inspect class and instance information more easily.     |
+| Feature | Description |
+| --- | --- |
+| Class creation | Build callable classes from Lua tables. |
+| Instance initialization | Define an `init` method for constructor-like behavior. |
+| Includes | Share methods between class definitions. |
+| Private state | Use `self.__private` for per-instance internal data. |
+| Accessors | Generate and manage structured access to values. |
+| Cloning | Duplicate class instances when needed. |
+| Operators | Add helper behavior for Lua metamethod-driven patterns. |
+| Debug output | Inspect class and instance information more easily. |
 
 ## Documentation
 
@@ -185,14 +212,20 @@ luac -p class.lua tests/*.lua
 
 The GitHub Actions test workflow runs on Lua 5.1, 5.2, 5.3, and 5.4.
 
+## Release
+
+The latest release is available here:
+
+**[https://github.com/Lost-Things-Studio/Class/releases/latest](https://github.com/Lost-Things-Studio/Class/releases/latest)**
+
 ## Contributing
 
 Contributions are welcome.
 
 Please read:
 
-* [Contributing guide](CONTRIBUTING.md)
-* [Code of conduct](CODE_OF_CONDUCT.md)
+- [Contributing guide](CONTRIBUTING.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
 
 ## License
 
