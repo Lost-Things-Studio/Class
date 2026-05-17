@@ -1,0 +1,42 @@
+{
+  "name": "class-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Documentation website for Class, a lightweight OOP helper for Lua.",
+  "scripts": {
+    "start": "cross-env NO_UPDATE_NOTIFIER=true docusaurus start",
+    "build": "cross-env NO_UPDATE_NOTIFIER=true docusaurus build",
+    "serve": "cross-env NO_UPDATE_NOTIFIER=true docusaurus serve",
+    "clear": "cross-env NO_UPDATE_NOTIFIER=true docusaurus clear"
+  },
+  "engines": {
+    "node": ">=20.0"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.1",
+    "@docusaurus/preset-classic": "3.10.1",
+    "@mdx-js/react": "^3.1.1",
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "10.1.0"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  }
+}
