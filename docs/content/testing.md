@@ -16,9 +16,12 @@ The suite covers:
 
 - Class creation and initialization.
 - Accessors and private state.
-- Single and multiple inheritance.
+- Single, multiple, and transitive inheritance.
 - Includes and cloning.
 - Registered classes.
+- Type identity with `Class:is` and `instance:Is`.
+- Type assertions with `Class:assertIs` and `instance:AssertIs`.
+- Spoofed `__type` tables when class-table identity is required.
 - Operator behavior.
 - Debug output.
 
